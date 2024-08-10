@@ -1,0 +1,112 @@
+    # COMANDOS PARA ANTES DE COMITAR
+
+-> iniciar repositorio git dentro da pastra do projeto.
+Comando: git init nome_da_past
+
+-> clonar um repositório já existente no git hub.
+Comando: git glone url_do_repositorio.git
+
+-> Ver todos as mudanças de arquivos que não foram adicionados no stage.
+Comando: git status
+
+-> adicionar arquivos dentro do stage.
+Comando1: Adicionar um arquivo por vez no stage => git add nome_arquivo
+Comando2: Adicionar todos os arquivos de uma vez no stage => git add 
+
+-> retirar um arquivo que está dentro do stage para refazer.
+git reset nome_arquivo
+
+-> Restaure um arquivo existente no stage para voltar a ultima alteração.
+Comando: git restore nome_arquivo
+
+        # COMANDOS PARA COMITAR DEPOIS QUE AS ALTERAÇÕES FORAM FEITAS COM SUCESSO.
+
+Boas práticas de um commit:
+- Fazer commit por funcionalidade juntando todos os arquivos que são relacionados.
+- Nomeclatura ao criar uma branch para uma nova funcionalidade: feat/Descrição
+- Nomeclatura ao modificar uma funcionalidade que já exista: chore/Descrição
+- Nomeclatura ao criar uma branch para correção de bug: fix/Descrição
+exomplo: git commit -m "chore: campo de nome adicionado no form de cadastro"
+
+-> Fazer commit
+Comando: git commit -m "descrição do commit"
+
+-> Fazer correção do ultimo commit feito, substiuindo por um novo commit.
+Comando: git commit --amend -m "Descrição do commit"
+
+->Aplicar commits específicos de uma branch para outra, em vez de mesclar todas as alterações.
+comando: git cherry-pick hash-do-commit
+
+->Combinar as alterações de uma branch com outra, preservando o histórico de commits.
+Comando: git merge nome-da-branch-de-origem
+
+-> O Salva Sexta feira: Voltar para o commit anterior que está funcionando
+sem retirar o ultimo commit que deu problema,sendo assim você pode voltar
+ e concertar depois.
+
+ Comando: git revert --no-edit id_do_commit_hash
+
+
+-> Git soft volta para o penúltimo commit que esá sem bug, 
+e retoorna o commit atual que está com bug para a stage.
+Sendo assim vc pode voltar para adicionar mais alguma coisa e commitar novamente.
+
+Comando: git reset --soft id_do_commit_hash
+
+-> git hard volta para o commit anterior excluindo o commit atual,
+esse comando é de urgencia caso tenha que desfazer a merda.
+
+Comando: git reset --hard id_do_commit_hash
+
+
+            
+
+        # BRANCH COMANDOS
+        
+Boas praticas para fazer commit:
+
+- Fazer commit por funcionalidade juntando todos os arquivos que são relacionados.
+- Nomeclatura ao criar uma branch para uma nova funcionalidade: feat/id/page-login
+- Nomeclatura ao modificar uma funcionalidade que já exista: chore/id/page-login
+- Nomeclatura ao criar uma branch para correção de bug: fix/id/page-login
+
+->Criar uma BRANCH
+Comando: git BRANCH nome_da_branch
+
+->Mudar de BRANCH 
+Comando: git checkout nome_da_branch
+
+->Criar uma branch e mudar para nova branch criada ao mesmo tempo.
+Comando: git checkout -b nome_da_branch
+
+->Deletar uma BRANCH
+Comando: git branch -D nome_da_branch
+
+-> renomear nome da BRANCH
+Comando: git branch -m nome_da_branch
+
+
+
+
+        #Conectando repositório  remoto
+
+->Instalando chave publica e privada uma unica vez para se conectar com o github.
+Comando: ssh-keygen -t ed25519 -C "Seu_email@example.com"
+
+->Conectando o repositorio local com o remoto. (faça isso dentro da branch master)
+Comando:  git remote add origin https://github.com/lucasluna-dev/CodigoTmp.git
+
+->Inserindo arquivos do repositorio local na primeira vez para o remoto (faça isso dentro da branch master)
+git push -u origin master
+
+-> inserir novos commites para do repositorio local para o remoto. (faça isso dentro da branch master)
+comando: git push origin master
+
+        # Ignorando arquivos do repositório (gitignore)
+
+-> ETAPA 1. criar arquivo .gitignore dentro do projeto
+-> ETAPA 2. edntro do arquivo .gitignore escrever todos os arquivos que precisam ser 
+ignorado pelo stage.
+Exemplo => senhas.txt ou extenção como *.txt para esconder todos arquivos *.txt ou *.sql
+
+
